@@ -1,0 +1,103 @@
+%% NOTE: Think about including aliases in this language...
+
+%% This is a version of a Tic Tac Toe game written in a new language.
+%% The purpose of this document is to explore possible syntax options.
+
+# Tic-Tac-Toe
+Let board be a new instance of Board. Let move-counter be 0.
+Do the following:
+    Execute Print with input "MOVE ~d~%" and move-counter.
+    Execute Print-Board with input board.
+    Execute Print with input "\n\n".
+    Let winner be the result of Winner with input board.
+    If winner is not nil, do the following:
+        Execute Print with inputs "\(^O^)/ PLAYER ~d WINS!!!\n" and winner.
+        Break from loop.
+    Else if the result of Is-Full with input board is true, do the following:
+        Execute Print with input "¯\_(ツ)_/¯ Looks like you tied... play again!\n".
+        Break from loop.
+    Do the following:
+        Let user-input be the result of Prompt-Move with input board's markings.
+        If user-input is not nil, do the following:
+            Let successful-move be the result of Mark-Square with input board.
+            If successful-move is false, do the following:
+                Execute Print with input "INVALID MOVE. Please try again...\n".
+                Break from loop.
+            Set move-counter to be move-counter + 1.
+            Execute Print with input "\n\n".
+            Break from loop.
+
+## Board
+-> current-player, markings
+Let current-player be 0. Let markings be the list [0 0 0 0 0 0 0 0 0].
+
+### Next-Player
+-> board
+<- player
+++Toggle between players 1 and 2.++ If the board's current-player is 1, return 2. Otherwise return 1.
+
+## Mark-Square
+-> board, square-index
+<- success
+++Mark the specified square if it's unmarked, change to next player's turn.++ Let current-marking be the value at the square-index position of board's markings. If the current-marking is 0, do the following:
+    Set the square-index position of board's markings to board's current-player. 
+    Then set board's current-player to the result of Next-Player with input board.
+
+## Winner
+-> board
+<- winning-player
+++Determine which player has won, if any.++ If the result of Player-Has-Won with input 1 is true, return 1. If the result of Player-Has-Won with input 2 is true, return 2.
+
+## Player-Has-Won
+-> player, board
+<- player-has-won
+Let markings be board's markings.
+
+++Check if player has placed three marks along any row.++ Do the following 3 times with counter i:
+    Let first-square be the value of markings at position i * 3 + 0.
+    Let second-square be the value of markings at position i * 3 + 1.
+    Let third-square be the value of markings at position i * 3 + 2.
+    If first-square, second-square, and third-square all equal player, return true.
+
+++Check if player has placed three marks along any column.++ Do the following 3 times with counter i:
+    Let first-square be the value of markings at position 0 * 3 + i.
+    Let second-square be the value of markings at position 1 * 3 + i.
+    Let third-square be the value of markings at position 2 * 3 + i.
+    If first-square, second-square, and third-square all equal player, return true.
+
+++Check if player has placed three marks along any diagonal.++ Let first-square be the value of markings at position 0. Let second-square be the value of markings at position 4. Let third-square be the value of markings at position 8. If first-square, second-square, and third-square all equal player, return true.
+
+## Is-Full
+-> board
+++Look for any unmarked squares.++ For each marking in board's markings, if marking equals 0, return nil.
+
+## Print-Board
+-> board
+++Print a representation of the given tic-tac-toe board to console.++ Do the following 3 times with counter i:
+    Execute Print-Divider.
+    Execute Print with input "\n|".
+    Do the following 3 times with counter j:
+        Let marking be the value of board's markings at position i * 3 + j.
+        Execute Print with inputs " ~d |" and result of Marking-Symbol with input marking.
+    Execute Print with input "\n".
+Execute Print-Divider.
+
+## Print-Divider
+++Print the row divider for the text representation of a tic-tac-toe-board.++ Execute Print with input "—". Do the following 3 times:
+    Execute Print with input "————".
+
+## Marking-Symbol
+-> marking
+++Convert player marking to a text-friendly representation.++ If marking is 0, return " ". Else if marking is 1, return "X". Otherwise return "O".
+
+## Prompt-Move
+-> current-player
+<- user-input
+++Prompt current player to mark a square, return user input if valid.++ Execute Print with inputs "Player ~d's move. Select a square to mark (1 - 9): " and current-player. Let user-input be the result of Read-User-Input. Return the result of Format-Input with input user-input.
+
+## Format-Input
+-> user-input
+<- formatted-user-input
+++If user inputs valid unmarked square, return formatted input.++ Try to do the following:
+    Let parsed-input be the result of Cast with inputs user-input and Integer's type.
+    If parsed-input is greater than or equal to 1 and less than or equal to 9, return parsed-input - 1.
