@@ -18,7 +18,7 @@ Do the following:
     Do the following:
         Let user-input be the result of Prompt-Move with input game's board-marks.
         If user-input is not nil, do the following:
-            Let successful-move be the result of Mark-Square with input game.
+            Let successful-move be the result of whether the user can successfully Mark-Square in game at position user-input
             If successful-move is false, do the following:
                 Print "INVALID MOVE. Please try again...\n".
                 Break from loop.
@@ -42,6 +42,8 @@ Otherwise return 1.
 ## Mark-Square
 -> game, square-index
 <- success
+() Discard result: "`Mark-Square in `game` at position `square-index`"
+   Capture result: "whether the user can successfully `Mark-Square` in `game` at position `square-index`"
 ++Mark the specified square if it's unmarked, change to next player's turn.++ 
 Let current-mark be an alias to the square-index position of game's board-marks. 
 If the current-mark is 0, do the following:
