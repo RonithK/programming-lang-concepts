@@ -8,9 +8,9 @@ Do the following:
     Print "MOVE ~d~%" and fill placeholder with move-counter.
     Execute Print-Board with input game.
     Print "\n\n".
-    Let winner be the result of Winner with input game.
-    If winner is not nil, do the following:
-        Print "\(^O^)/ PLAYER ~d WINS!!!\n" and fill placeholder with winner.
+    Let winning-player be the Winner of game.
+    If winning-player is not nil, do the following:
+        Print "\(^O^)/ PLAYER ~d WINS!!!\n" and fill placeholder with winning-player.
         Break from loop.
     Else if the result of Is-Full with input game is true, do the following:
         Print "¯\_(ツ)_/¯ Looks like you tied... play again!\n".
@@ -18,7 +18,7 @@ Do the following:
     Do the following:
         Let user-input be the result of Prompt-Move with input game's board-marks.
         If user-input is not nil, do the following:
-            Let successful-move be the result of whether the user can successfully Mark-Square in game at position user-input
+            Let successful-move be whether the user can successfully Mark-Square in game at position user-input
             If successful-move is false, do the following:
                 Print "INVALID MOVE. Please try again...\n".
                 Break from loop.
@@ -53,6 +53,7 @@ If the current-mark is 0, do the following:
 ## Winner
 -> game
 <- winning-player
+() Capture result: "the `Winner` of `game`"
 ++Determine which player has won, if any.++ 
 If the result of Player-Has-Won with input 1 is true, return 1. 
 If the result of Player-Has-Won with input 2 is true, return 2.
