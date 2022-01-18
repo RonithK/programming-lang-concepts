@@ -34,6 +34,7 @@ Let board-marks be the list [0 0 0 0 0 0 0 0 0].
 ### Next-Player
 -> game
 <- player
+() "`game`'s `Next-Player`"
 ++Toggle between players 1 and 2.++ 
 If game's current-player is 1, return 2. 
 Otherwise return 1.
@@ -45,7 +46,7 @@ Otherwise return 1.
 Let current-mark be an alias to the square-index position of game's board-marks. 
 If the current-mark is 0, do the following:
     Set current-mark to game's current-player. 
-    Then set game's current-player to the result of Next-Player with input game.
+    Then set game's current-player to the game's Next-Player.
 
 ## Winner
 -> game
