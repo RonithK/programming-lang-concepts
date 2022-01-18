@@ -42,9 +42,9 @@ Otherwise return 1.
 -> board, square-index
 <- success
 ++Mark the specified square if it's unmarked, change to next player's turn.++ 
-Let current-marking be the value at the square-index position of board's markings. 
+Let current-marking be an alias to the square-index position of board's markings. 
 If the current-marking is 0, do the following:
-    Set the square-index position of board's markings to board's current-player. 
+    Set current-marking to board's current-player. 
     Then set board's current-player to the result of Next-Player with input board.
 
 ## Winner
