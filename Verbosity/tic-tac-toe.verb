@@ -5,25 +5,25 @@
 Let game be a new instance of Game. 
 Let move-counter be 0.
 Do the following:
-    Execute Print with input "MOVE ~d~%" and move-counter.
+    Print "MOVE ~d~%" and fill placeholder with move-counter.
     Execute Print-Board with input game.
-    Execute Print with input "\n\n".
+    Print "\n\n".
     Let winner be the result of Winner with input game.
     If winner is not nil, do the following:
-        Execute Print with inputs "\(^O^)/ PLAYER ~d WINS!!!\n" and winner.
+        Print "\(^O^)/ PLAYER ~d WINS!!!\n" and fill placeholder with winner.
         Break from loop.
     Else if the result of Is-Full with input game is true, do the following:
-        Execute Print with input "¯\_(ツ)_/¯ Looks like you tied... play again!\n".
+        Print "¯\_(ツ)_/¯ Looks like you tied... play again!\n".
         Break from loop.
     Do the following:
         Let user-input be the result of Prompt-Move with input game's board-marks.
         If user-input is not nil, do the following:
             Let successful-move be the result of Mark-Square with input game.
             If successful-move is false, do the following:
-                Execute Print with input "INVALID MOVE. Please try again...\n".
+                Print "INVALID MOVE. Please try again...\n".
                 Break from loop.
             Set move-counter to be move-counter + 1.
-            Execute Print with input "\n\n".
+            Print "\n\n".
             Break from loop.
 
 ## Game
@@ -89,18 +89,18 @@ For each mark in game's board-marks, if mark equals 0, return nil.
 ++Print a representation of the given tic-tac-toe game to console.++ 
 Do the following 3 times with counter i:
     Execute Print-Divider.
-    Execute Print with input "\n|".
+    Print "\n|".
     Do the following 3 times with counter j:
         Let mark be the value of game's board-marks at position i * 3 + j.
-        Execute Print with inputs " ~d |" and result of Marking-Symbol with input mark.
-    Execute Print with input "\n".
+        Print " ~d |" and fill placeholder with the result of Marking-Symbol with input mark.
+    Print "\n".
 Execute Print-Divider.
 
 ## Print-Divider
 ++Print the row divider for the text representation of a tic-tac-toe-game.++ 
-Execute Print with input "—".
+Print "—".
 Do the following 3 times:
-    Execute Print with input "————".
+    Print "————".
 
 ## Marking-Symbol
 -> mark
@@ -113,7 +113,7 @@ Otherwise return "O".
 -> current-player
 <- user-input
 ++Prompt current player to mark a square, return user input if valid.++ 
-Execute Print with inputs "Player ~d's move. Select a square to mark (1 - 9): " and current-player. 
+Print "Player ~d's move. Select a square to mark (1 - 9): " and fill placeholder with current-player. 
 Let user-input be the result of Read-User-Input. 
 Return the result of Format-Input with input user-input.
 
