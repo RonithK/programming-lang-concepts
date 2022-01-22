@@ -6,7 +6,7 @@ Let game be a new instance of Game.
 Let move-counter be 0.
 Do the following:
     Print "MOVE ~d~%" and fill placeholder with move-counter.
-    Execute Print-Board with input game.
+    Print-Board from game.
     Print "\n\n".
     Let winning-player be the Winner of game.
     If winning-player is not nil, do the following:
@@ -94,6 +94,7 @@ For each mark in game's board-marks, if mark equals 0, return nil.
 
 ## Print-Board
 -> game
+() "`Print-Board` from `game`"
 ++Print a representation of the given tic-tac-toe game to console.++ 
 Do the following 3 times with counter i:
     Execute Print-Divider.
