@@ -4,7 +4,7 @@
 # Tic-Tac-Toe
 Let game be a new instance of Game. 
 Let move-counter be 0.
-Do the following:
+Do the following unlimited times:
     Print "MOVE ~d~%" and fill placeholder with move-counter.
     Print-Board from game.
     Print "\n\n".
@@ -15,16 +15,16 @@ Do the following:
     Else if game board Is-Full, do the following:
         Print "¯\_(ツ)_/¯ Looks like you tied... play again!\n".
         Break from loop.
-    Do the following:
+    Do the following unlimited times:
         Let user-input be the game's current-player's input after `Move-Prompt`.
         If user-input is not nil, do the following:
             Let successful-move be whether the user can successfully Mark-Square in game at position user-input
             If successful-move is false, do the following:
                 Print "INVALID MOVE. Please try again...\n".
+            Otherwise do the following:
+                Set move-counter to be move-counter + 1.
+                Print "\n\n".
                 Break from loop.
-            Set move-counter to be move-counter + 1.
-            Print "\n\n".
-            Break from loop.
 
 ## Game
 -> current-player, board-marks
