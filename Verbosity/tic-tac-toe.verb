@@ -35,7 +35,7 @@ Let board-marks be the list [0 0 0 0 0 0 0 0 0].
 -> game
 <- player
 * Idiomatic Usage
-    * Discard result: "`game`'s `Next-Player`"
+    * "`game`'s `Next-Player`"
 
 ++Toggle between players 1 and 2.++ 
 If game's current-player is 1, return 2. 
@@ -45,8 +45,8 @@ Otherwise return 1.
 -> game, square-index
 <- success
 * Idiomatic Usage
-    * Discard result: "`Mark-Square in `game` at position `square-index`" 
-    * Capture result: "whether the user can successfully `Mark-Square` in `game` at position `square-index`" 
+    * "`Mark-Square in `game` at position `square-index`" 
+    * "whether the user can successfully `Mark-Square` in `game` at position `square-index`" 
 
 ++Mark the specified square if it's unmarked, change to next player's turn.++ 
 Let current-mark be an alias to the square-index position of game's board-marks. 
@@ -58,7 +58,7 @@ If the current-mark is 0, do the following:
 -> game
 <- winning-player
 * Idiomatic Usage
-    * Capture result: "the `Winner` of `game`"
+    * "the `Winner` of `game`"
 
 ++Determine which player has won, if any.++ 
 If player 1 Has-Won game, return 1. 
@@ -68,8 +68,8 @@ If player 2 Has-Won game, return 2.
 -> player, game
 <- player-has-won
 * Idiomatic Usage
-    * Capture result: "`player` has won `game`"
-    * Capture result: "whether `player` `Has-Won` `game`"
+    * "`player` has won `game`"
+    * "whether `player` `Has-Won` `game`"
 
 Let board-marks be game's board-marks.
 
@@ -96,8 +96,8 @@ If first-square, second-square, and third-square all equal player, return true.
 ## Is-Full
 -> game
 * Idiomatic Usage
-    * Capture result: "`game` board `Is-Full`" 
-    * Capture result: "whether `game` board `Is-Full`"
+    * "`game` board `Is-Full`" 
+    * "whether `game` board `Is-Full`"
 
 ++Look for any unmarked squares.++ 
 For each mark in game's board-marks, if mark equals 0, return nil.
@@ -105,7 +105,7 @@ For each mark in game's board-marks, if mark equals 0, return nil.
 ## Print-Board
 -> game
 * Idiomatic Usage
-    * Discard result: "`Print-Board` from `game`"
+    * "`Print-Board` from `game`"
     
 ++Print a representation of the given tic-tac-toe game to console.++ 
 Do the following 3 times with counter i:
@@ -119,7 +119,7 @@ Print-Divider.
 
 ## Print-Divider
 * Idiomatic Usage
-    * Discard result: "`Print-Divider`"
+    * "`Print-Divider`"
 
 ++Print the row divider for the text representation of a tic-tac-toe-game.++ 
 Print "—".
@@ -129,7 +129,7 @@ Do the following 3 times:
 ## Mark-Symbol
 -> mark
 * Idiomatic Usage
-    * Capture result: "`Mark-Symbol` corresponding to `mark`"
+    * "`Mark-Symbol` corresponding to `mark`"
 
 ++Convert player mark to a text-friendly representation.++ 
 If mark is 0, return " ". 
@@ -140,7 +140,7 @@ Otherwise return "O".
 -> current-player
 <- user-input
 * Idiomatic Usage
-    * Capture result: "`current-player`'s input after `Move-Prompt`" 
+    * "`current-player`'s input after `Move-Prompt`" 
 
 ++Prompt current player to mark a square, return user input if valid.++ 
 Print "Player ~d's move. Select a square to mark (1 - 9): " and fill placeholder with current-player. 
