@@ -16,7 +16,7 @@ Do the following:
         Print "¯\_(ツ)_/¯ Looks like you tied... play again!\n".
         Break from loop.
     Do the following:
-        Let user-input be the result of Prompt-Move with input game's board-marks.
+        Let user-input be the game's current-player's input after `Move-Prompt`.
         If user-input is not nil, do the following:
             Let successful-move be whether the user can successfully Mark-Square in game at position user-input
             If successful-move is false, do the following:
@@ -119,9 +119,10 @@ If mark is 0, return " ".
 Else if mark is 1, return "X". 
 Otherwise return "O".
 
-## Prompt-Move
+## Move-Prompt 
 -> current-player
 <- user-input
+() Capture results: "`current-player`'s input after `Move-Prompt`"
 ++Prompt current player to mark a square, return user input if valid.++ 
 Print "Player ~d's move. Select a square to mark (1 - 9): " and fill placeholder with current-player. 
 Let user-input be the result of Read-User-Input. 
