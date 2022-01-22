@@ -34,7 +34,9 @@ Let board-marks be the list [0 0 0 0 0 0 0 0 0].
 ### Next-Player
 -> game
 <- player
-() "`game`'s `Next-Player`"
+* Idiomatic Usage
+    * Discard result: "`game`'s `Next-Player`"
+
 ++Toggle between players 1 and 2.++ 
 If game's current-player is 1, return 2. 
 Otherwise return 1.
@@ -42,8 +44,10 @@ Otherwise return 1.
 ## Mark-Square
 -> game, square-index
 <- success
-() Discard result: "`Mark-Square in `game` at position `square-index`"
-   Capture result: "whether the user can successfully `Mark-Square` in `game` at position `square-index`"
+* Idiomatic Usage
+    * Discard result: "`Mark-Square in `game` at position `square-index`" 
+    * Capture result: "whether the user can successfully `Mark-Square` in `game` at position `square-index`" 
+
 ++Mark the specified square if it's unmarked, change to next player's turn.++ 
 Let current-mark be an alias to the square-index position of game's board-marks. 
 If the current-mark is 0, do the following:
@@ -53,7 +57,9 @@ If the current-mark is 0, do the following:
 ## Winner
 -> game
 <- winning-player
-() Capture result: "the `Winner` of `game`"
+* Idiomatic Usage
+    * Capture result: "the `Winner` of `game`"
+
 ++Determine which player has won, if any.++ 
 If player 1 Has-Won game, return 1. 
 If player 2 Has-Won game, return 2.
@@ -61,8 +67,10 @@ If player 2 Has-Won game, return 2.
 ## Has-Won 
 -> player, game
 <- player-has-won
-() Capture results: "`player` has won `game`"
-   Capture results: "whether `player` `Has-Won` `game`"
+* Idiomatic Usage
+    * Capture result: "`player` has won `game`"
+    * Capture result: "whether `player` `Has-Won` `game`"
+
 Let board-marks be game's board-marks.
 
 ++Check if player has placed three marks along any row.++ 
@@ -87,25 +95,32 @@ If first-square, second-square, and third-square all equal player, return true.
 
 ## Is-Full
 -> game
-() Capture results: "`game` board `Is-Full`"
-   Capture results: "whether `game` board `Is-Full`"
+* Idiomatic Usage
+    * Capture result: "`game` board `Is-Full`" 
+    * Capture result: "whether `game` board `Is-Full`"
+
 ++Look for any unmarked squares.++ 
 For each mark in game's board-marks, if mark equals 0, return nil.
 
 ## Print-Board
 -> game
-() "`Print-Board` from `game`"
+* Idiomatic Usage
+    * Discard result: "`Print-Board` from `game`"
+    
 ++Print a representation of the given tic-tac-toe game to console.++ 
 Do the following 3 times with counter i:
-    Execute Print-Divider.
+    Print-Divider.
     Print "\n|".
     Do the following 3 times with counter j:
         Let mark be the value of game's board-marks at position i * 3 + j.
         Print " ~d |" and fill placeholder with the Mark-Symbol corresponding to mark.
     Print "\n".
-Execute Print-Divider.
+Print-Divider.
 
 ## Print-Divider
+* Idiomatic Usage
+    * Discard result: "`Print-Divider`"
+
 ++Print the row divider for the text representation of a tic-tac-toe-game.++ 
 Print "—".
 Do the following 3 times:
@@ -113,7 +128,9 @@ Do the following 3 times:
 
 ## Mark-Symbol
 -> mark
-() Capture results: "`Mark-Symbol` corresponding to `mark`"
+* Idiomatic Usage
+    * Capture result: "`Mark-Symbol` corresponding to `mark`"
+
 ++Convert player mark to a text-friendly representation.++ 
 If mark is 0, return " ". 
 Else if mark is 1, return "X". 
@@ -122,7 +139,9 @@ Otherwise return "O".
 ## Move-Prompt 
 -> current-player
 <- user-input
-() Capture results: "`current-player`'s input after `Move-Prompt`"
+* Idiomatic Usage
+    * Capture result: "`current-player`'s input after `Move-Prompt`" 
+
 ++Prompt current player to mark a square, return user input if valid.++ 
 Print "Player ~d's move. Select a square to mark (1 - 9): " and fill placeholder with current-player. 
 Let user-input be the result of Read-User-Input. 
@@ -131,6 +150,7 @@ Return the result of Format-Input with input user-input.
 ## Format-Input
 -> user-input
 <- formatted-user-input
+
 ++If user inputs valid unmarked square, return formatted input.++ 
 Try to do the following:
     Let parsed-input be the result of Cast with inputs user-input and Integer's type.
