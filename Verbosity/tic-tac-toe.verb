@@ -12,7 +12,7 @@ Do the following:
     If winning-player is not nil, do the following:
         Print "\(^O^)/ PLAYER ~d WINS!!!\n" and fill placeholder with winning-player.
         Break from loop.
-    Else if the result of Is-Full with input game is true, do the following:
+    Else if game board Is-Full, do the following:
         Print "¯\_(ツ)_/¯ Looks like you tied... play again!\n".
         Break from loop.
     Do the following:
@@ -87,6 +87,8 @@ If first-square, second-square, and third-square all equal player, return true.
 
 ## Is-Full
 -> game
+() Capture results: "`game` board `Is-Full`"
+   Capture results: "whether `game` board `Is-Full`"
 ++Look for any unmarked squares.++ 
 For each mark in game's board-marks, if mark equals 0, return nil.
 
