@@ -101,7 +101,7 @@ Do the following 3 times with counter i:
     Print "\n|".
     Do the following 3 times with counter j:
         Let mark be the value of game's board-marks at position i * 3 + j.
-        Print " ~d |" and fill placeholder with the result of Marking-Symbol with input mark.
+        Print " ~d |" and fill placeholder with the Mark-Symbol corresponding to mark.
     Print "\n".
 Execute Print-Divider.
 
@@ -111,8 +111,9 @@ Print "—".
 Do the following 3 times:
     Print "————".
 
-## Marking-Symbol
+## Mark-Symbol
 -> mark
+() Capture results: "`Mark-Symbol` corresponding to `mark`"
 ++Convert player mark to a text-friendly representation.++ 
 If mark is 0, return " ". 
 Else if mark is 1, return "X". 
