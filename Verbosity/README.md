@@ -4,9 +4,7 @@ Writing documentation is tedious and annoying. On the other hand, missing docume
 
 Verbosity virtually elimantes the need to write documentation by blurring the lines between code, pseudocode, and documentation. The result is a language that reads more like an essay or a mathematical proof rather than traditional code.
 
-
-## The Basics
-### Comments
+## Comments
 Commenting an entire line:
 ```
 %% This is a commented out line.
@@ -17,14 +15,14 @@ Writing inline comments:
 If true, return false. ++This is an inline comment.++ Otherwise return false.
 ```
 
-### Main Function
+## Main Function
 The main function is the entry point to your program. This function is annotated with a single hashmark `#`. For example:
 ```
 # Example Program
 Print "hello world!"
 ```
 
-### Classes
+## Classes
 Classes are created using two hashmarks `##`. The `->` symbol indicates the properties of the class. The body text under the class heading is the initialization code. For example:
 ```
 ## Dog
@@ -36,7 +34,7 @@ If breed is not nil, let Dog's breed be "unknown".
 Otherwise let Dog's breed be breed.
 ```
 
-### Functions
+## Functions
 Functions are declared using three hashmarks `###`. The `->` symbol indicates the inputs of the function. The `<-` symbol indicates the outputs of the function. Optionally, alternate function call forms can be enumerated under the `* Idiomatic Usage` section. For example:
 ```
 ### Hatch
