@@ -1,5 +1,5 @@
 %% This is a version of a Tic Tac Toe game written with experimental syntax.
-%% The purpose of this document is to explore possible syntax options.
+%% The purpose of this document is to explore possible language features.
 
 # Tic-Tac-Toe
 Let game be a new instance of Game. 
